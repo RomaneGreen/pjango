@@ -13,7 +13,7 @@
     <p>Last name: {{ user.last_name }}</p>
     <p>Email: {{ user.email }}</p>
     <p>About: {{ user.userprofile.about }}</p>
-    <p>Token: {{ user.userprofile.tokens }}</p>
+    <p>Tokens: {{ user.userprofile.tokens }}</p>
     
     {% if user.userprofile.image %}
     <img src="{{ user.userprofile.image.url }}" width="240">
