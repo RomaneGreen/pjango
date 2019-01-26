@@ -2,3 +2,5 @@
 env
 .vscode
 vscode
+env/
+.vscode/
