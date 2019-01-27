@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm,UserChangeForm
 from renmo.forms import RegistrationForm,EditProfileForm
+
 from django.conf import settings 
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -22,6 +23,10 @@ def get_context_data(self, **kwargs):
 
 def charge(request): 
     if request.method == 'POST':
+        user = request.UserProfile
+        user.UserProfile.tokens = 50
+        user.userprofile.save
+        user.save()
         charge = stripe.Charge.create(
             amount=500,
             currency='usd',
