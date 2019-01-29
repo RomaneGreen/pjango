@@ -1,6 +1,9 @@
 import stripe
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from renmo.models import UserProfile
+from django.db.models import F
+
 from django.contrib.auth.forms import UserCreationForm,UserChangeForm
 from renmo.forms import RegistrationForm,EditProfileForm
 
@@ -23,10 +26,13 @@ def get_context_data(self, **kwargs):
 
 def charge(request): 
     if request.method == 'POST':
-        user = request.UserProfile
-        user.UserProfile.tokens = 50
-        user.userprofile.save
-        user.save()
+        # user = request.UserProfile
+        # user.UserProfile.tokens = 50
+        # user.userprofile.save
+        # user.save()
+        userTokens = UserProfile.objects.all()[0]
+        userTokens.tokens = F('tokens')+ 5
+        userTokens.save()
         charge = stripe.Charge.create(
             amount=500,
             currency='usd',
