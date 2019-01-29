@@ -1,7 +1,7 @@
 import stripe
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from renmo.models import UserProfile
+from renmo.models import UserProfile,TokenTransfer
 from django.db.models import F
 from renmo.forms import TokenTransferForm
 from django.contrib.auth.forms import UserCreationForm,UserChangeForm
@@ -77,14 +77,22 @@ def edit_profile(request):
 
 def transfer_token(request):
     uzer = UserProfile.objects.get(user=request.user)
+    uza =  TokenTransfer.objects.last().reciever
     users = UserProfile.objects.all()
     if request.method == "POST":
         form = TokenTransferForm(request.POST)
+    
         if form.is_valid():
             transfer = form.save(commit=False)
             transfer.sender = uzer
+            uzer.tokens = F('tokens')- transfer.tokens
+            uzer.save()
             transfer.transfer_time = timezone.now()
+            transfer.reciever.tokens += 99
             transfer.save()
+
+            uza.tokens = F('tokens')+ transfer.tokens
+            uza.save()
             return redirect('/', pk=transfer.pk)
     else:
           form = TokenTransferForm()
