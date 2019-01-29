@@ -3,11 +3,13 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from renmo.models import UserProfile
 from django.db.models import F
-
+from renmo.forms import TokenTransferForm
 from django.contrib.auth.forms import UserCreationForm,UserChangeForm
 from renmo.forms import RegistrationForm,EditProfileForm
-
+from django.contrib import messages 
 from django.conf import settings 
+from django.utils import timezone
+from django.http import HttpResponse, HttpResponseRedirect
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -72,3 +74,19 @@ def edit_profile(request):
         args = {'form': form}
         return render(request, 'registration/edit_profile.html', args)
 
+
+def transfer_token(request):
+    uzer = UserProfile.objects.get(user=request.user)
+    users = UserProfile.objects.all()
+    if request.method == "POST":
+        form = TokenTransferForm(request.POST)
+        if form.is_valid():
+            transfer = form.save(commit=False)
+            transfer.sender = uzer
+            transfer.transfer_time = timezone.now()
+            transfer.save()
+            return redirect('/', pk=transfer.pk)
+    else:
+          form = TokenTransferForm()
+    return render(request, 'send_token.html',{"form":form,"users":users})
+    # return render(request,'send_token.html',{"error":error,"users":users,"form":form})

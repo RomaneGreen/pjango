@@ -1,4 +1,6 @@
 from django import forms
+from django.forms import ModelForm
+from .models import TokenTransfer
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
@@ -45,3 +47,8 @@ class EditProfileForm(UserChangeForm):
             'password'
         )
     
+
+class TokenTransferForm(ModelForm):
+    class Meta:
+        model = TokenTransfer
+        fields = ['reciever','message','tokens']
