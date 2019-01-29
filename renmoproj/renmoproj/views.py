@@ -26,11 +26,9 @@ def get_context_data(self, **kwargs):
 
 def charge(request): 
     if request.method == 'POST':
-        # user = request.UserProfile
-        # user.UserProfile.tokens = 50
-        # user.userprofile.save
-        # user.save()
-        userTokens = UserProfile.objects.all()[0]
+       
+        # userTokens = UserProfile.objects.all()[0]
+        userTokens = UserProfile.objects.get(user=request.user)
         userTokens.tokens = F('tokens')+ 5
         userTokens.save()
         charge = stripe.Charge.create(
