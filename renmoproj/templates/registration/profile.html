@@ -12,7 +12,7 @@
     <p>First name: {{ user.first_name }}</p>
     <p>Last name: {{ user.last_name }}</p>
     <p>Email: {{ user.email }}</p>
-    <p>About: {{ user.userprofile.about }}</p>
+    {% comment %} <p>About: {{ user.userprofile.about }}</p> {% endcomment %}
     <p>Tokens: {{ user.userprofile.tokens }}</p>
     
     {% if user.userprofile.image %}

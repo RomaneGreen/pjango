@@ -14,7 +14,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 def home(request):
- transactions = TokenTransfer.objects.all()
+ transactions = TokenTransfer.objects.all().order_by('-id')[:6]
  args = {'transactions': transactions}
  return render(request, 'home.html',args)
 

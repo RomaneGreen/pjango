@@ -11,6 +11,8 @@ class UserProfile(models.Model):
     about = models.CharField(max_length=1000)
     tokens = models.IntegerField(default=0)
 
+    def __str__(self): return self.name
+
 def create_profile(sender, **kwargs):
     if kwargs['created']:
         user_profile = UserProfile.objects.create(user=kwargs['instance'])
@@ -26,3 +28,10 @@ class TokenTransfer(models.Model):
     reciever = models.ForeignKey(UserProfile,on_delete=models.CASCADE, related_name="reciever")
     transfer_time = models.DateTimeField(default=timezone.now)
 
+# def get_user_name(self):
+#     return self.reciever.name
+
+# def __str__(self):
+#     return self.reciever.name
+        
+    
