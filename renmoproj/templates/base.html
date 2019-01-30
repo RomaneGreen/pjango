@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> 
-  <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> 
+  <title>{% block title %} Django Auth Tutorial {% endblock %}</title>
 </head>
  
 <body>
@@ -13,14 +13,14 @@
        <div class="container">
         <div class="navbar-header">
          
-          <a class="navbar-brand" href="/">Project name</a>
+          <a class="navbar-brand" href="{% url 'home' %}">Project name</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="/account/token">Add Tokens</a></li>
-            <li><a href="/account/edit_profile">Edit Profile</a></li>
-             <li class=""><a href="/send_tokens">Send Tokens</a></li>
+            <li class="active"><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'add_token' %}">Add Tokens</a></li>
+            <li><a href="{% url 'edit_profile' %}">Edit Profile</a></li>
+             <li class=""><a href="{% url 'transfer_token' %}">Send Tokens</a></li>
             
               
               </ul>

@@ -1,28 +1,23 @@
 {% extends 'base.html' %}
 
-{% block title %}Home{% endblock %}
-
-
-
+{% block title %} Home {% endblock %}
 
 {% block body %}
-
-
-
 
 
 {% if user.is_authenticated %}
 
 Hi {{ user.username }}!
 
-   <p><a href="{% url 'logout' %}">logout</a></p>
+  <p><a href="{% url 'logout' %}">logout</a></p>
 
   <h1> Recent Activity </h1>
+
   {% for transac in transactions %}
 
- <p>{{ transac.sender.name }} sent {{ transac.reciever.name }} {{ transac.tokens }} tokens </p>
- <p>Message : {{ transac.message }} </p>
-  <p>{{ transac.transfer_time }} </p>
+<p>{{ transac.sender.name }} sent {{ transac.reciever.name }} {{ transac.tokens }} tokens </p>
+<p>Message : {{ transac.message }} </p>
+<p>{{ transac.transfer_time }} </p>
     <br><br>
 
 {% endfor %}

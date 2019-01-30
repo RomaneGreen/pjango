@@ -29,7 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'social_django',
     'renmo',
-    #  'renmo.apps.PaymentsConfig'
+    
     
 ]
 
@@ -144,11 +144,11 @@ AUTHENTICATION_BACKENDS = (
 )
 
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='390025849717-mjt8bgco2o49uj89228coi3oqk09r3k9.apps.googleusercontent.com'  #Paste CLient Key
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '9ORENmM1ur4D_VYMnQ2qFML1' #Paste Secret Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='390025849717-mjt8bgco2o49uj89228coi3oqk09r3k9.apps.googleusercontent.com'  
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '9ORENmM1ur4D_VYMnQ2qFML1' 
 
-SOCIAL_AUTH_GITHUB_KEY = 'aca355179ffd255ca524' #Paste Client ID
-SOCIAL_AUTH_GITHUB_SECRET =  'fb91a5d6bcadfdf35dd07299bd76440cda844e45' #Paste Secret Key
+SOCIAL_AUTH_GITHUB_KEY = 'aca355179ffd255ca524' 
+SOCIAL_AUTH_GITHUB_SECRET =  'fb91a5d6bcadfdf35dd07299bd76440cda844e45' 
 
 STRIPE_SECRET_KEY = 'sk_test_QBBK3fUNA4GvwSTirChrLGLW'
 STRIPE_PUBLISHABLE_KEY = 'pk_test_BKVBReTM3kPV3vTxhJXTXpku'
