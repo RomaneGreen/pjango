@@ -32,8 +32,6 @@ def get_context_data(self, **kwargs):
 
 def charge(request): 
     if request.method == 'POST':
-       
-        # userTokens = UserProfile.objects.all()[0]
         userTokens = UserProfile.objects.get(user=request.user)
         userTokens.tokens = F('tokens')+ 5
         userTokens.save()
@@ -87,10 +85,13 @@ def transfer_token(request):
         form = TokenTransferForm(request.POST)
     
         if form.is_valid():
+
             transfer = form.save(commit=False)
             transfer.sender = uzer
+
             uzer.tokens = F('tokens')- transfer.tokens
             uzer.save()
+
             transfer.transfer_time = timezone.now()
             transfer.reciever.tokens += 99
             transfer.save()
@@ -101,4 +102,3 @@ def transfer_token(request):
     else:
           form = TokenTransferForm()
     return render(request, 'send_token.html',{"form":form,"users":users})
-    # return render(request,'send_token.html',{"error":error,"users":users,"form":form})

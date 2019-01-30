@@ -28,10 +28,5 @@ class TokenTransfer(models.Model):
     reciever = models.ForeignKey(UserProfile,on_delete=models.CASCADE, related_name="reciever")
     transfer_time = models.DateTimeField(default=timezone.now)
 
-# def get_user_name(self):
-#     return self.reciever.name
 
-# def __str__(self):
-#     return self.reciever.name
-        
     

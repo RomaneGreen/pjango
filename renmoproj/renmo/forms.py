@@ -3,7 +3,6 @@ from django.forms import ModelForm
 from .models import TokenTransfer
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-
 from .models import UserProfile
 
 
@@ -29,15 +28,9 @@ class RegistrationForm(UserCreationForm):
 
         if commit:
             user.save()
-
         return user
 
-
-
-
 class EditProfileForm(UserChangeForm):
-    
-
     class Meta:
         model = User
         fields = (
@@ -47,7 +40,6 @@ class EditProfileForm(UserChangeForm):
             'password'
         )
     
-
 class TokenTransferForm(ModelForm):
     class Meta:
         model = TokenTransfer
