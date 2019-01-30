@@ -18,9 +18,11 @@ def create_profile(sender, **kwargs):
 post_save.connect(create_profile, sender=User)
 
 
+
 class TokenTransfer(models.Model):
     sender = models.ForeignKey(UserProfile,on_delete=models.CASCADE, related_name="sender")
     message = models.CharField(max_length=1000)
     tokens = models.IntegerField(default=5)
     reciever = models.ForeignKey(UserProfile,on_delete=models.CASCADE, related_name="reciever")
     transfer_time = models.DateTimeField(default=timezone.now)
+

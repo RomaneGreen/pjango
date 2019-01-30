@@ -14,11 +14,15 @@ from django.http import HttpResponse, HttpResponseRedirect
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 def home(request):
-	return render(request, 'home.html')
+ transactions = TokenTransfer.objects.all()
+ args = {'transactions': transactions}
+ return render(request, 'home.html',args)
 
 
 def add_token(request):
-	return render(request, 'add_token.html')
+ transactions = TokenTransfer.objects.all()
+ args = {'transactions': transactions}
+ return render(request, 'add_token.html',args)
 
 
 def get_context_data(self, **kwargs): 
