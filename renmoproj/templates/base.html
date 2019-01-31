@@ -4,40 +4,38 @@
 <html>
 <head>
   <meta charset="utf-8">
-   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <title>{% block title %} Renmo {% endblock %}</title>
 </head>
  
 <body>
-<nav class="navbar navbar-default navbar-fixed-top">
-       <div class="container">
-        <div class="navbar-header">
-         
-          <a class="navbar-brand" href="{% url 'home' %}"> Renmo </a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'add_token' %}">Add Tokens</a></li>
-            <li><a href="{% url 'edit_profile' %}">Edit Profile</a></li>
-             <li class=""><a href="{% url 'transfer_token' %}">Send Tokens</a></li>
-            
-              
-              </ul>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/account/profile">Profile</a></li>
-            <li><a href="/account/register">Register</a></li>
-            
-          </ul>
-        </div>
-      </div> 
-    </nav>
+<br> 
+<nav class="level">
+  <p class="level-item has-text-centered">
+    <a class="link is-info" href="{% url 'home' %}">Home</a></li>
+  </p>
+  <p class="level-item has-text-centered">
+    <a class="link is-info" href="{% url 'add_token' %}">Add Tokens</a></li>
+  </p>
+   <p class="level-item has-text-centered">
+    <a class="link is-info" href="{% url 'transfer_token' %}">Send Tokens</a></li>
+  </p>
+  <p class="level-item has-text-centered">
+    <a class="link is-info" href="{% url 'home' %}">Renmo</a></li alt="" style="font-weight:bold,height: 30px;">
+  </p>
+ 
+  <p class="level-item has-text-centered">
+    <a class="link is-info" href="{% url 'profile' %}">My Profile</a></li>
+  </p>
+  <p class="level-item has-text-centered">
+    <a class="link is-info" href="{% url 'edit_profile' %}"> Edit Profile</a></li>
+  </p>
+  <p class="level-item has-text-centered">
+    <a class="link is-info" href="{% url 'register' %}">Register</a></li>
+  </p>
+</nav>
 
-    <div class="container">
   <main>
   <br>
   <br>
@@ -45,5 +43,6 @@
     {% block body %}
     {% endblock %}
   </main>
-</body>
+  
 </html>
+
