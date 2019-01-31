@@ -7,6 +7,7 @@
 
 {% block body %}
 
+{% if user.is_authenticated %}
 <article class="message msg-head is-info">
   <div class="message-header">
     <p>Profile</p>
@@ -20,4 +21,8 @@
      <p><strong>About Me:</strong> {{ user.userprofile.about }}</p>
   </div>
 </article>
+{% else %}
+  <p class="level-item has-text-centered">You must be logged in to edit Profile!
+  <a href="{% url 'login' %}">Login</a></p>
+{% endif %}
 {% endblock %}
