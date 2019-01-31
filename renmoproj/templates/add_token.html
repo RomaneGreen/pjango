@@ -4,8 +4,7 @@
 
 {% block body %}
 
-
-
+{% if user.is_authenticated %}
 
 <article class="tile is-child notification is-dark">
 Hi {{ user.username }},click below to add tokens!
@@ -24,7 +23,10 @@ Hi {{ user.username }},click below to add tokens!
 </script>
   </form>
 
+ {% else %}
 
-
+  <p class="level-item has-text-centered">You must be logged in to add tokens!</p>
+  <a class ="level-item has-text-centered" href="{% url 'login' %}">Login</a>
+{% endif %}
 
 {% endblock %}

@@ -6,7 +6,7 @@
 
 {% block body %}
 
-{% if user.is_authenticated %}
+
 
 <div class="field enlarge">
     <h2>Token Transfer form:</h2>
@@ -16,11 +16,7 @@
     </form>
     </div>
 
-    {% else %}
-
-  <p class="level-item has-text-centered">You must be logged in to send tokens!
-  <a href="{% url 'login' %}">Login</a></p>
-{% endif %}
+   
 {% endblock %}
 
 

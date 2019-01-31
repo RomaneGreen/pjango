@@ -22,7 +22,8 @@
   </div>
 </article>
 {% else %}
-  <p class="level-item has-text-centered">You must be logged in to edit Profile!
-  <a href="{% url 'login' %}">Login</a></p>
+  <p class="level-item has-text-centered">You must be logged in to view Profile!</p>
+  <a class ="level-item has-text-centered" href="{% url 'login' %}">Login</a>
 {% endif %}
 {% endblock %}
+
