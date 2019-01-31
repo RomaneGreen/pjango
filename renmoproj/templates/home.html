@@ -10,9 +10,11 @@
 
 {% if user.is_authenticated %}
 
-Hi {{ user.username }}!
+<div class="header">
+<p class="level-item has-text-centered"> Greetings, <strong>{{ user.username }}!</strong> <br></p>
 
-  <p><a href="{% url 'logout' %}">logout</a></p>
+  <a class="level-item has-text-centered"href="{% url 'logout' %}">logout</a>
+</div>
 
 <article class="media">
   <figure class="media-right">
@@ -43,8 +45,12 @@ Hi {{ user.username }}!
   </div>
 </article>
 {% else %}
-  <p class="level-item has-text-centered">You are not logged in</p>
-  <a href="{% url 'login' %}">login</a>
+
+   
+  <p class="level-item has-text-centered">Welcome! Please Log in or Register</p> <br>
+
+  <a class="level-item has-text-centered" href="{% url 'login' %}">Login</a>
+  <a class="level-item has-text-centered" href="{% url 'register' %}">Register</a> 
 {% endif %} 
 
 {% endblock %}

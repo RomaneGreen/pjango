@@ -6,7 +6,7 @@
 
 {% block body %}
 <div class="field enlarge">
-    <h2>Send Tokens</h2>
+    <h2>Token Transfer form:</h2>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
       <button type="submit" class="save btn btn-default">Send Tokens</button>

@@ -4,7 +4,9 @@
 <html>
 <head>
   <meta charset="utf-8">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <title>{% block title %} Renmo {% endblock %}</title>
 </head>
@@ -22,7 +24,7 @@
     <a class="link is-info" href="{% url 'transfer_token' %}">Send Tokens</a></li>
   </p>
   <p class="level-item has-text-centered">
-    <a class="link is-info" href="{% url 'home' %}">Renmo</a></li alt="" style="font-weight:bold,height: 30px;">
+    <a class="link is-info headtext" href="{% url 'home' %}">Renmo</a></li alt="" style="font-weight:bold,height: 30px;">
   </p>
  
   <p class="level-item has-text-centered">
@@ -38,7 +40,7 @@
   
 </nav>
 
-<p class="level-item has-text-centered">A payment processing App</p>
+<p class="subhead level-item has-text-centered">A payment processing App</p>
     
   <main>
   <br>
