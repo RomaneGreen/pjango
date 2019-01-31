@@ -6,12 +6,12 @@
 
 
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
 
-  <p><a href="{% url 'logout' %}">logout</a></p>
-
-  <h2>Add tokens </h2>
-  <p>(5.00 for $5)</p>
+<article class="tile is-child notification is-dark">
+Hi {{ user.username }},click below to add tokens!
+          <p class="title">Add tokens</p>
+          <p class="subtitle">(5.00 for $5)</p>
+  
 
   <form action="{% url 'charge' %}" method="post">
   {% csrf_token %}
@@ -25,10 +25,11 @@
   </form>
 
 
+
 {% else %}
 
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a>
+  <p class="level-item has-text-centered">You must be logged in to add tokens!
+  <a href="{% url 'login' %}">Login</a></p>
   
 {% endif %}
 {% endblock %}

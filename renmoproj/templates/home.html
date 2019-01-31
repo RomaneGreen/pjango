@@ -5,30 +5,46 @@
 {% block body %}
 
 
+
+
+
 {% if user.is_authenticated %}
 
 Hi {{ user.username }}!
 
   <p><a href="{% url 'logout' %}">logout</a></p>
 
-  <h1> Recent Activity </h1>
+<article class="media">
+  <figure class="media-right">
+   
+    
+  </figure>
+  <div class="media-content level-item is-info">
+    <div class="content">
+      <h1>Recent Activity</h1>
 
-  {% for transac in transactions %}
+      {% for transac in transactions %}
 
-<p>{{ transac.sender.name }} sent {{ transac.reciever.name }} {{ transac.tokens }} tokens </p>
-<p>Message : {{ transac.message }} </p>
-<p>{{ transac.transfer_time }} </p>
-    <br><br>
-
-{% endfor %}
-
-
+        <strong>{{ transac.sender.name }}</strong> <small>sent</small> <strong>{{ transac.reciever.name }}</strong>  {{ transac.tokens }} <small>tokens</small>
+        <br>
+        <strong>Message</strong> : {{ transac.message }} <br>
+        <strong>Time</strong> : {{ transac.transfer_time }} <br><br> <br>
+        {% endfor %}
+      </p>
+    </div>
+    <nav class="level is-mobile">
+      <div class="level-left">
+        
+      </div>
+    </nav>
+  </div>
+  <div class="media-right">
+   
+  </div>
+</article>
 {% else %}
-  <p>You are not logged in</p>
+  <p class="level-item has-text-centered">You are not logged in</p>
   <a href="{% url 'login' %}">login</a>
-{% endif %}
-
-
-
+{% endif %} 
 
 {% endblock %}

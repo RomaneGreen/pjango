@@ -6,15 +6,18 @@
 {% endblock %}
 
 {% block body %}
-<div class="container">
-    <h1>Profile</h1>
-    <p>Username: {{ user }}</p>
-    <p>First name: {{ user.first_name }}</p>
-    <p>Last name: {{ user.last_name }}</p>
-    <p>Email: {{ user.email }}</p>
-    <p>Tokens: {{ user.userprofile.tokens }}</p>
-    
-    
-</div>
 
+<article class="message is-dark">
+  <div class="message-header">
+    <p>Profile</p>
+  </div>
+  <div class="message-body">
+      <p><strong>Username:</strong> {{ user }}</p>
+    <p><strong>First name:</strong> {{ user.first_name }}</p>
+    <p><strong>Last name:</strong> {{ user.last_name }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Tokens:</strong> {{ user.userprofile.tokens }}</p>
+     <p><strong>About Me:</strong> {{ user.userprofile.about }}</p>
+  </div>
+</article>
 {% endblock %}
