@@ -6,7 +6,6 @@
 
 {% block body %}
 
-{% if user.is_authenticated %}
 
 <div class="field enlarge">
     <form method="post">
@@ -16,9 +15,5 @@
     </form>
     <br>
 </div>
- {% else %}
-
-  <p class="level-item has-text-centered">You must be logged in to edit Profile!
-  <a href="{% url 'login' %}">Login</a></p>
-  {% endif %}
+ 
 {% endblock %}

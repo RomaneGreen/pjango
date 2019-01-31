@@ -5,7 +5,7 @@
 {% block body %}
 
 
-{% if user.is_authenticated %}
+
 
 <article class="tile is-child notification is-dark">
 Hi {{ user.username }},click below to add tokens!
@@ -26,10 +26,5 @@ Hi {{ user.username }},click below to add tokens!
 
 
 
-{% else %}
 
-  <p class="level-item has-text-centered">You must be logged in to add tokens!
-  <a href="{% url 'login' %}">Login</a></p>
-  
-{% endif %}
 {% endblock %}

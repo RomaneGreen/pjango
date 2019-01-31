@@ -10,6 +10,7 @@ from django.contrib import messages
 from django.conf import settings 
 from django.utils import timezone
 from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -64,6 +65,7 @@ def view_profile(request, pk=None):
     return render(request, 'registration/profile.html', args)
 
 
+@login_required
 def edit_profile(request):
     if request.method == 'POST':
         form = EditProfileForm(request.POST, instance=request.user)
@@ -76,7 +78,7 @@ def edit_profile(request):
         args = {'form': form}
         return render(request, 'registration/edit_profile.html', args)
 
-
+@login_required
 def transfer_token(request):
     uzer = UserProfile.objects.get(user=request.user)
     uza =  TokenTransfer.objects.last().reciever
